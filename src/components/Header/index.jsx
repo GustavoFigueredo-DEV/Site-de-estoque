@@ -21,7 +21,7 @@ export default function Header() {
           </div>
 
           <div className={style.links}>
-            <a href="/home">Home</a>
+            <a href="/">Home</a>
             <a href="/produtos">Produtos</a>
             <a href="/categorias">Categorias</a>
 

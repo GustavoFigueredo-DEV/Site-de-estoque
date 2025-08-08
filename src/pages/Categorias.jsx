@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import style from '../styles/AddCategoria.module.css';
+import style from '../styles/Categorias.module.css';
 import { FaPlus } from "react-icons/fa6";
 import { SquarePen } from 'lucide-react';
 
@@ -82,7 +82,6 @@ export default function Categorias() {
             <CirclePlus size={50} />
             </div>
             <p>Cadastrar mais categorias</p>
-          
         </Link>
       </div>
     </>
