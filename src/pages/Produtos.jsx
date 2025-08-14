@@ -40,7 +40,7 @@ export default function Produtos() {
     <>
       <Header />
       <div className={style.produtoContainerTop}>
-        <h1 className={style.title}>Categorias de Estoque</h1>
+        <h1 className={style.title}>Produtos em Estoque</h1>
         <div className={style.btnAddProdutoContainer}>
           <Link to="/cadastrar-produto" className={style.addProdutoBtn}>
             <FaPlus size={20} /> Adicionar um produto

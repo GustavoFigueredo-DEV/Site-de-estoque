@@ -36,25 +36,25 @@
 }
 
 /*PRODUTOS*/
-
 .produtosContainer {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
+    align-items: stretch;
 }
 
 .produto {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     border-radius: 10px;
-    margin: 10px;
+    margin: 5px;
     padding: 10px;
     width: 100%;
-    height: 100%;
     max-width: 290px;
-    max-height: 450px;
+    height: 400px;
     align-items: center;
     text-align: center;
     gap: 5px;
@@ -62,7 +62,7 @@
     img {
         width: 100%;
         max-width: 150px;
-        height: 100%;
+        height: auto;
         max-height: 300px;
     }
 }
@@ -108,7 +108,7 @@
 }
 
 .deleteButton {
-    background-color: #64B5F6;
+    background-color: #000000;
     padding: 5px;
     border-radius: 5px;
     text-decoration: none;
@@ -116,6 +116,9 @@
     width: 40%;
     border: none;
     font-size: 16px;
-    background-color: #000000;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    &:hover{
+        background-color: red;
+    }
 }
