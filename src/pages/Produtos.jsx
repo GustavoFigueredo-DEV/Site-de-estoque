@@ -5,6 +5,9 @@ import axios from 'axios';
 import style from '../styles/Produtos.module.css';
 import { FaPlus } from "react-icons/fa6";
 
+import CadastroCategoria from '../components/CadastroCategoria';
+import EditarCategoria from '../components/EditarCategoria';
+
 export default function Produtos() {
   const [produtos, setProdutos] = useState([]);
 
@@ -82,6 +85,8 @@ export default function Produtos() {
           ))
         )}
       </div>
+      <EditarCategoria />
+      <CadastroCategoria />
     </>
   );
 }

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Header from '../components/Header';
+import Header from '../Header';
 
 const api = axios.create({
   baseURL: "http://localhost:3333"

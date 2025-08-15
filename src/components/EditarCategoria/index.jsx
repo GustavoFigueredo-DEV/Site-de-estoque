@@ -1,8 +1,11 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import style from '../styles/EditarCategoria.module.css'
-import Header from '../components/Header'
+import style from './EditarCategoria.module.css'
+import Header from '../Header'
+import { ChevronLeft } from 'lucide-react';
+import { Pencil } from 'lucide-react';
+import { ArrowDownToLine } from 'lucide-react';
 
 const api = axios.create({
   baseURL: "http://localhost:3333"
@@ -67,12 +70,19 @@ export default function EditarCategoria() {
 
   return (
     <>
-      <Header />
       <div className={style.formContainer}>
         <form action="" onSubmit={editarCategoria}>
 
           <div className={style.form}>
-            <h2>Editar categoria</h2>
+
+            <button type="button"
+              onClick={() => navigate(-1)}
+              className={style.voltar}
+            ><ChevronLeft size={25} />
+              Voltar
+            </button>
+
+            <h2 className={style.title}><Pencil /> Editar categoria</h2>
             <label htmlFor="nome">Alterar nome:</label>
             <input type="text"
               id="nome"
@@ -92,15 +102,10 @@ export default function EditarCategoria() {
             />
             <div className={style.botoes}>
               <button type="submit" disabled={!isValid} className={style.salvarAlteracoes} >
+                <ArrowDownToLine size={20} />
                 Salvar alterações
               </button>
 
-              <button type="button"
-                onClick={() => navigate(-1)}
-                className={style.cancelar}
-              >
-                Cancelar
-              </button>
               <button onClick={() => deletarCategoria()} className={style.deletar}>Deletar Categoria</button>
             </div>
           </div>

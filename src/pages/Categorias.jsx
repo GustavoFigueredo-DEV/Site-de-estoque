@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import style from '../styles/Categorias.module.css';
 import { FaPlus } from "react-icons/fa6";
 import { SquarePen } from 'lucide-react';
-
-// Importação dos ícones do lucide-react
+import CadastroCategoria from '../components/CadastroCategoria';
+import EditarCategoria from '../components/EditarCategoria';
 import { Bot, Video, HeartPulse, Sprout, Building2, Factory, Zap, CirclePlus } from 'lucide-react';
 
 export default function Categorias() {
@@ -55,7 +55,7 @@ export default function Categorias() {
             const Icon = categoriaIcones[categoria.name] || Bot; // Ícone padrão
 
             return (
-              
+
               <div key={categoria.id} className={style.categoria}>
                 <div className={style.iconContainer}>
                   <Icon color="#26A8ED" size={50} />
@@ -70,20 +70,25 @@ export default function Categorias() {
                   <p className={style.categoriaDescricao}>{categoria.description}</p>
 
                 </div>
-                
+
               </div>
-              
+
             );
           })
-          
+
         )}
         <Link to="/cadastrar-categoria" className={style.addCard}>
           <div className={style.addIcon}>
             <CirclePlus size={50} />
-            </div>
-            <p>Cadastrar mais categorias</p>
+          </div>
+          <p>Cadastrar mais categorias</p>
         </Link>
       </div>
+
+      <CadastroCategoria />
+      <EditarCategoria />
     </>
   );
 }
+
+

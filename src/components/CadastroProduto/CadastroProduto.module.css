@@ -1,0 +1,41 @@
+.formContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    max-width: 100%;
+    width: 500px;
+    max-height: 100%;
+    height: auto;
+    padding: 20px;
+    border-radius: 15px;
+
+    label {
+        font-family: "Poppins", sans-serif;
+    }
+
+    textarea {
+        font-family: "Poppins", sans-serif;
+        border-radius: 5px;
+        padding: 5px;
+        font-size: 15px;
+        resize: none;
+        height: 150px;
+    }
+
+    input {
+        border: solid black 1px;
+        border-radius: 5px;
+        padding: 5px;
+        font-size: 15px;
+        height: 35px;
+    }
+}

@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from '../components/Header'
-import style from '../styles/CadastroCategoria.module.css'
+import Header from '../Header'
+import style from './CadastroCategoria.module.css'
 import { ChartBarStacked } from 'lucide-react';
+import { ChevronLeft } from 'lucide-react';
 
 const api = axios.create({
   baseURL: "http://localhost:3333"
@@ -34,11 +35,19 @@ export default function CadastroCategoria() {
   }
   return (
     <>
-      <Header />
       <div className={style.formContainer}>
         <form action="" onSubmit={handleSubmit}>
-          
+
+
+
           <div className={style.form}>
+            <button type="button"
+              onClick={() => navigate(-1)}
+              className={style.voltar}
+            ><ChevronLeft size={25}/>
+              Voltar
+            </button>
+
             <h2 className={style.title}><ChartBarStacked size={30} /> Cadastro de categoria</h2>
             <span className={style.aviso}>*Preencha todos os campos.</span>
             <label htmlFor="nome">Nome:</label>
@@ -60,16 +69,11 @@ export default function CadastroCategoria() {
             />
             <div className={style.botoes}>
 
-              <button type="submit" disabled={!isValid} className={style.salvar} >
+              <button type="submit" disabled={!isValid} className={style.cadastrar} >
                 Cadastrar
               </button>
 
-              <button type="button"
-                className={style.cancelar}
-                onClick={() => navigate(-1)}
-              >
-                Cancelar
-              </button>
+
             </div>
           </div>
         </form>
