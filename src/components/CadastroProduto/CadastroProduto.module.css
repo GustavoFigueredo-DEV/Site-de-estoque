@@ -34,11 +34,10 @@
     gap: 10px;
 
     label {
-        font-family: "Poppins", sans-serif;
+        
     }
 
     textarea {
-        font-family: "Poppins", sans-serif;
         border-radius: 5px;
         padding: 5px;
         font-size: 15px;
@@ -63,7 +62,6 @@
 
 .selectCategoria {
     border-radius: 5px;
-    font-family: "Poppins", sans-serif;
     height: 100%;
     max-height: 35px;
     font-size: 15px;

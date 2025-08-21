@@ -93,11 +93,10 @@
     border-radius: 5px;
     background-color: transparent;
     cursor: pointer;
-    transition: background-color 0.3s ease;
     font-size: 15px;
-    font-weight: 500;
-    font-family: "Lato", sans-serif;
     height: 40px;
+    background-color: #ffb6b6;
+    height: 35px;
 }
 
 .botaoVoltarContainer{

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import axios from "axios";
 import { FaPlus } from "react-icons/fa6";
 import { SquarePen } from 'lucide-react';
@@ -127,6 +128,7 @@ export default function Categorias() {
           onCadastro={handleNovaCategoria}
         />
       )}
+      <Footer/>
     </>
   );
 }

@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
 import Header from '../components/Header';
+import Footer from '../components/Footer'
 import axios from 'axios';
 import style from '../styles/Produtos.module.css';
 import { FaPlus } from "react-icons/fa6";
-import CadastroProduto from '../components/CadastroProduto'
+import CadastroProduto from '../components/CadastroProduto';
 import EditarProduto from '../components/EditarProduto';
 
 export default function Produtos() {
   const [produtos, setProdutos] = useState([]);
+  const [mostrarCadastrarProduto, setMostrarCadastrarProduto] = useState(false);
+  const [editarProdutoId, setEditarProdutoId] = useState(null);
 
   const api = axios.create({
     baseURL: "http://localhost:3333"
@@ -37,10 +39,6 @@ export default function Produtos() {
       alert("Erro ao deletar produto.");
     }
   }
-
-  //usestate para não mostrar o modal
-  const [mostrarCadastrarProduto, setMostrarCadastrarProduto] = useState(false);
-  const [mostrarEditarProduto, setMostrarEditarProduto] = useState(false);
 
   return (
     <>
@@ -73,9 +71,9 @@ export default function Produtos() {
               </div>
 
               <div className={style.btnContainer}>
-                <Link to={`/editar-produto/${produto.id}`} className={style.editarBtn}>
+                <button className={style.editarBtn} onClick={() => setEditarProdutoId(produto.id)}>
                   Editar
-                </Link>
+                </button>
                 <button
                   type="button"
                   className={style.deleteButton}
@@ -89,14 +87,19 @@ export default function Produtos() {
         )}
       </div>
 
-{/* renderização condicional, só acontece se o componente for = true */}
-
       {mostrarCadastrarProduto && (
         <CadastroProduto 
-        onClose={() => setMostrarCadastrarProduto(false)}
+          onClose={() => setMostrarCadastrarProduto(false)}
         />
       )}
 
+      {editarProdutoId && (
+        <EditarProduto 
+          id={editarProdutoId} 
+          onClose={() => setEditarProdutoId(null)}
+        />
+      )}
+      <Footer/>
     </>
   );
 }

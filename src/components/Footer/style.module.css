@@ -1,0 +1,87 @@
+footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    align-items: center;
+    background-color: rgb(57, 57, 57);
+    flex-direction: row;
+    padding: 40px;
+    gap: 150px;
+    margin-top: 50px;
+}
+
+.logoContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+
+    img {
+        max-width: 60px;
+    }
+
+    p {
+        color: white;
+        font-family: "Poppins", sans-serif;
+        font-size: 20px;
+    }
+}
+
+.text {
+    span {
+        color: white;
+        color: rgb(138, 138, 138);
+    }
+}
+
+.produto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+    span {
+        color: white;
+    }
+
+    a {
+        text-decoration: none;
+        color: rgb(138, 138, 138);
+        font-size: 16px;
+
+        &:hover {
+            color: rgb(78, 78, 252);
+        }
+    }
+}
+
+.suporte {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    
+    span {
+        color: white;
+    }
+
+    a {
+        text-decoration: none;
+        color: rgb(138, 138, 138);
+
+        &:hover {
+            color: rgb(78, 78, 252);
+        }
+    }
+}
+
+.empresaInfo {
+    display: flex;
+    flex-direction: column;
+    width: 550px;
+}
+
+.owner{
+    margin-top: 20px;
+    p{
+        color: rgb(138, 138, 138);
+    }
+}

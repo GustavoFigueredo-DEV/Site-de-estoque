@@ -67,13 +67,3 @@
     top: 23%;
     left: 94%;
 }
-
-.colorMode {
-    background-color: #ffffff;
-    cursor: pointer;
-    border: none;
-    border-radius: 40px;
-    width: 35px;
-    border: solid black 1px;
-    padding: 2px;
-}

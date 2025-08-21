@@ -27,10 +27,6 @@ export default function Header() {
 
           </div>
 
-        <div>
-          <button className={style.colorMode}> <Moon color="black" size={25} /> </button>
-        </div>
-
         </div>
       </header>
     </>
