@@ -4,9 +4,8 @@ import Header from '../components/Header';
 import axios from 'axios';
 import style from '../styles/Produtos.module.css';
 import { FaPlus } from "react-icons/fa6";
-
-import CadastroCategoria from '../components/CadastroCategoria';
-import EditarCategoria from '../components/EditarCategoria';
+import CadastroProduto from '../components/CadastroProduto'
+import EditarProduto from '../components/EditarProduto';
 
 export default function Produtos() {
   const [produtos, setProdutos] = useState([]);
@@ -39,15 +38,19 @@ export default function Produtos() {
     }
   }
 
+  //usestate para não mostrar o modal
+  const [mostrarCadastrarProduto, setMostrarCadastrarProduto] = useState(false);
+  const [mostrarEditarProduto, setMostrarEditarProduto] = useState(false);
+
   return (
     <>
       <Header />
       <div className={style.produtoContainerTop}>
         <h1 className={style.title}>Produtos em Estoque</h1>
         <div className={style.btnAddProdutoContainer}>
-          <Link to="/cadastrar-produto" className={style.addProdutoBtn}>
+          <button className={style.addProdutoBtn} onClick={() => setMostrarCadastrarProduto(true)}>
             <FaPlus size={20} /> Adicionar um produto
-          </Link>
+          </button>
         </div>
       </div>
 
@@ -85,8 +88,15 @@ export default function Produtos() {
           ))
         )}
       </div>
-      <EditarCategoria />
-      <CadastroCategoria />
+
+{/* renderização condicional, só acontece se o componente for = true */}
+
+      {mostrarCadastrarProduto && (
+        <CadastroProduto 
+        onClose={() => setMostrarCadastrarProduto(false)}
+        />
+      )}
+
     </>
   );
 }

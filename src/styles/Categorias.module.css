@@ -32,6 +32,8 @@
     gap: 5px;
     font-family: "Poppins", sans-serif;
     font-size: 16px;
+    cursor: pointer;
+    border: none;
 }
 
 /*CATEGORIAS*/
@@ -66,12 +68,15 @@
     justify-content: flex-end;
 }
 
-.editarLink{
+.editarBtn{
     display: flex;
     justify-content: flex-end;
     margin-right: 20px;
     max-height: 10px;
     margin-bottom: 20px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
 }
 
 .addCard{
@@ -89,4 +94,6 @@
     color: gray;
     background-color: #EBEBEB;
     gap: 10px;
+    cursor: pointer;
+    border: none;
 }

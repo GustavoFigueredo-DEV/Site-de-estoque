@@ -2,6 +2,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    height: 100%;
+    width: 100%;
 }
 
 .title {
@@ -20,14 +27,13 @@
     justify-content: center;
     gap: 5px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    max-width: 100%;
     width: 500px;
     max-height: 100%;
-    height: 300px;
-    padding: 20px;
+    padding: 15px;
     border-radius: 15px;
     height: 100%;
-    height: 400px;
+    max-height: 400px;
+    background-color: white;
 
     label {
         font-family: "Poppins", sans-serif;
@@ -43,6 +49,7 @@
     }
 
     input {
+        font-family: "Poppins", sans-serif;
         border: solid black 1px;
         border-radius: 5px;
         padding: 5px;
@@ -55,42 +62,39 @@
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
+    gap: 10px;
 }
 
 .cadastrar {
-    background-color: #000000;
-    border: none;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 14px;
-    font-family: "Lato", sans-serif;
-    width: 100%;
+    width: 50%;
+  padding: 10px;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+  background-color: #26A8ED;
+  color: white;
+  
 
-    &:hover {
-        background-color: #02c80c;
-        color: white;
-    }
+  &:hover{
+    background-color: #1d82c9;
+  }
 }
 
-.voltar {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    border: none;
-    color: red;
-    width: 100%;
-    max-width: 100px;
-    background-color: white;
-    font-size: 17px;
-    margin-bottom: 5px;
-    padding: 5px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-
-    &:hover {
-        transform: translateX(-10px);
-    }
+.cancelar {
+    width: 50%;
+  padding: 10px ;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+  background-color: #e0e0e0;
+  color: #333;
+  &:hover{
+    background-color: #cfcfcf;
+  }
 }

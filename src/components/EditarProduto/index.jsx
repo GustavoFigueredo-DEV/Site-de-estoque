@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Header from '../Header';
 
 const api = axios.create({
   baseURL: "http://localhost:3333"
@@ -115,7 +114,6 @@ export default function EditarProduto() {
 
   return (
     <>
-      <Header />
       <form onSubmit={editarProduto}>
         <h2>Editar Produto</h2>
 

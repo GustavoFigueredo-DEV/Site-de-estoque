@@ -1,22 +1,37 @@
 .formContainer {
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 20px;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+}
+
+.modalContent {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    height: 550px;
+    width: 100%;
+    max-width: 1100px;
 }
 
 .form {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    max-width: 100%;
-    width: 500px;
-    max-height: 100%;
-    height: auto;
-    padding: 20px;
-    border-radius: 15px;
+    width: 100%;
+    max-width: 450px;
+    justify-content: flex-start;
+    gap: 10px;
 
     label {
         font-family: "Poppins", sans-serif;
@@ -38,4 +53,135 @@
         font-size: 15px;
         height: 35px;
     }
+}
+
+.title{
+    display: flex;
+    font-size: 26px;
+    gap: 5px;
+}
+
+.selectCategoria {
+    border-radius: 5px;
+    font-family: "Poppins", sans-serif;
+    height: 100%;
+    max-height: 35px;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.precoQuantidadeContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 10px;
+    width: 100%;
+}
+
+.preco {
+    display: flex;
+    flex-direction: column;
+}
+
+.quantidade {
+    display: flex;
+    flex-direction: column;
+}
+
+.imageUpload {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 2px dashed #bfbfbf;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    max-height: 460px;
+
+    span {
+        text-align: center;
+        font-size: 15px;
+    }
+}
+
+.fileInput {
+    display: none;
+}
+
+.imageIconContainer {
+    background-color: rgba(38, 168, 237, 0.2);
+    padding: 15px;
+    border-radius: 40px;
+    height: 100%;
+    max-height: 70px;
+}
+
+
+.fileLabel {
+    display: flex;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    align-items: center;
+}
+
+.preview {
+    max-width: 100%;
+    max-height: 80%;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.uploadContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.botoes{
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.cadastrar {
+  padding: 10px;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+  background-color: #26A8ED;
+  color: white;
+
+  &:hover{
+    background-color: #1d82c9;
+  }
+}
+
+.cancelar {
+  padding: 10px ;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+  background-color: #e0e0e0;
+  color: #333;
+  &:hover{
+    background-color: #cfcfcf;
+  }
 }
