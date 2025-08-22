@@ -9,7 +9,7 @@ const api = axios.create({
   baseURL: "http://localhost:3333"
 });
 
-export default function EditarProduto({ id, onClose }) {
+export default function EditarProduto({ id, onClose, onUpdate }) {
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
   const [preco, setPreco] = useState("");
@@ -88,7 +88,10 @@ export default function EditarProduto({ id, onClose }) {
       await api.patch(`/produtos/${id}`, formData, {
         headers: { "Content-Type": "multipart/form-data" }
       });
-      navigate("/produtos");
+
+      if (typeof onUpdate === "function") {
+        onUpdate(); // atualiza a lista e fecha o modal
+      }
     } catch (err) {
       setErro(err.response?.data?.message || err.message || "Erro ao editar produto.");
     } finally {
@@ -100,7 +103,12 @@ export default function EditarProduto({ id, onClose }) {
     if (!window.confirm("Tem certeza que deseja excluir este produto?")) return;
     try {
       await api.delete(`/produtos/${id}`);
-      navigate("/produtos");
+
+      if (typeof onUpdate === "function") {
+        onUpdate(); // atualiza lista e fecha modal
+      } else {
+        navigate("/produtos");
+      }
     } catch (err) {
       setErro(err.response?.data?.message || err.message || "Erro ao deletar produto.");
     }
@@ -235,7 +243,6 @@ export default function EditarProduto({ id, onClose }) {
           </div>
 
           <div className={style.botoes}>
-            
             <button
               className={style.cadastrar}
               type="submit"

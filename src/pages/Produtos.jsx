@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useSearchParams } from "react-router-dom";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import axios from 'axios';
@@ -11,6 +12,8 @@ export default function Produtos() {
   const [produtos, setProdutos] = useState([]);
   const [mostrarCadastrarProduto, setMostrarCadastrarProduto] = useState(false);
   const [editarProdutoId, setEditarProdutoId] = useState(null);
+  const [searchParams] = useSearchParams();
+  const search = searchParams.get("search")?.toLowerCase() || "";
 
   const api = axios.create({
     baseURL: "http://localhost:3333"
@@ -33,14 +36,19 @@ export default function Produtos() {
     if (!window.confirm("Tem certeza que deseja excluir este produto?")) return;
     try {
       await api.delete(`/produtos/${id}`);
-      setProdutos(produtos.filter(produto => produto.id !== id));
+      setProdutos(prev => prev.filter(produto => produto.id !== id));
     } catch (err) {
       console.error("Erro ao deletar produto:", err);
       alert("Erro ao deletar produto.");
     }
   }
 
-  // função pra definir cor da quantidade
+  const produtosFiltrados = produtos.filter(produto =>
+    produto.name.toLowerCase().includes(search) ||
+    produto.description.toLowerCase().includes(search) ||
+    produto.category?.name.toLowerCase().includes(search)
+  );
+
   function getQuantidadeColor(qtd) {
     if (qtd === 0) return "red";
     if (qtd <= 5) return "orange";
@@ -60,10 +68,10 @@ export default function Produtos() {
       </div>
 
       <div className={style.produtosContainer}>
-        {produtos.length === 0 ? (
-          <p>Nenhum produto foi cadastrado.</p>
+        {produtosFiltrados.length === 0 ? (
+          <p>Nenhum produto encontrado.</p>
         ) : (
-          produtos.map(produto => (
+          produtosFiltrados.map(produto => (
             <div key={produto.id} className={style.produto}>
               <div className={style.imageContainer}>
                 <img
@@ -80,16 +88,12 @@ export default function Produtos() {
                   {produto.quantity} disponível
                 </p>
 
-                {/* Categoria */}
                 <p className={style.produtoCategoria}>
                   {produto.category?.name || "Sem categoria"}
                 </p>
 
-                {/* Quantidade com cor */}
                 <div className={style.produtoQuantidade} style={{ background: getQuantidadeColor(produto.quantity)}}>
-                  <p>
-                    {produto.quantity} un.
-                  </p>
+                  <p>{produto.quantity} un.</p>
                 </div>
 
                 <div className={style.btnContainer}>

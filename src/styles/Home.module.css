@@ -59,3 +59,99 @@ hr{
     border: rgb(213, 213, 213) solid 1px;
     margin-top: 30px;
 }
+
+/* cards */
+
+.cardInfoContainer{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    padding: 0px 20px;
+    margin-top: 40px;
+}
+
+.cardInfo{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px;
+    gap: 10px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    p{
+        color: rgb(75, 75, 75);
+    }
+    h3{
+        color: green;
+        font-size: 16px;
+    }
+    span{
+        color: gray;
+        font-size: 16px;
+    }
+    h4{
+        color: red;
+        font-size: 16px;
+    }
+}
+
+.type{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* produtos recentes */
+
+.teste{
+    display: flex;
+    padding: 20px;
+    width: 100%;
+}
+
+.produtosRecentesContainer{
+    display: flex;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.produtoInfo{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    width: 100%;
+    flex-wrap: wrap;
+    p{
+        color: gray;
+        font-weight: bold;
+    }
+}
+
+.produtoContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 30px;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.produto{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    width: 100%;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    p{
+        color: gray;
+    }
+    span{
+        color: green;
+    }
+}
+
+.actions{
+    display: flex;
+    gap: 10px;
+}
