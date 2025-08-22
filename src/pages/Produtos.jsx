@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Header from '../components/Header';
-import Footer from '../components/Footer'
+import Footer from '../components/Footer';
 import axios from 'axios';
 import style from '../styles/Produtos.module.css';
 import { FaPlus } from "react-icons/fa6";
@@ -40,6 +40,13 @@ export default function Produtos() {
     }
   }
 
+  // função pra definir cor da quantidade
+  function getQuantidadeColor(qtd) {
+    if (qtd === 0) return "red";
+    if (qtd <= 5) return "orange";
+    return "green";
+  }
+
   return (
     <>
       <Header />
@@ -58,29 +65,45 @@ export default function Produtos() {
         ) : (
           produtos.map(produto => (
             <div key={produto.id} className={style.produto}>
-              <img
-                src={`http://localhost:3333${produto.imageUrl}`}
-                alt={produto.name}
-                width={100}
-              />
-              <p className={style.produtoName}>{produto.name}</p>
-              <p className={style.produtoDescription}>{produto.description}</p>
-              <p className={style.produtoPrice}>R${produto.price.toFixed(2)}</p>
-              <div className={style.produtoQuantidade}>
-                <p>{produto.quantity} restantes</p>
+              <div className={style.imageContainer}>
+                <img
+                  src={`http://localhost:3333${produto.imageUrl}`}
+                  alt={produto.name}
+                  width={100}
+                />
               </div>
+              <div className={style.info}>
+                <p className={style.produtoName}>{produto.name}</p>
+                <p className={style.produtoDescription}>{produto.description}</p>
+                <p className={style.produtoPrice}>R$ {produto.price.toFixed(2)}</p>
+                <p className={style.estoque} style={{ color: getQuantidadeColor(produto.quantity)}}>
+                  {produto.quantity} disponível
+                </p>
 
-              <div className={style.btnContainer}>
-                <button className={style.editarBtn} onClick={() => setEditarProdutoId(produto.id)}>
-                  Editar
-                </button>
-                <button
-                  type="button"
-                  className={style.deleteButton}
-                  onClick={() => deletarProduto(produto.id)}
-                >
-                  Deletar
-                </button>
+                {/* Categoria */}
+                <p className={style.produtoCategoria}>
+                  {produto.category?.name || "Sem categoria"}
+                </p>
+
+                {/* Quantidade com cor */}
+                <div className={style.produtoQuantidade} style={{ background: getQuantidadeColor(produto.quantity)}}>
+                  <p>
+                    {produto.quantity} un.
+                  </p>
+                </div>
+
+                <div className={style.btnContainer}>
+                  <button className={style.editarBtn} onClick={() => setEditarProdutoId(produto.id)}>
+                    Editar
+                  </button>
+                  <button
+                    type="button"
+                    className={style.deleteButton}
+                    onClick={() => deletarProduto(produto.id)}
+                  >
+                    Deletar
+                  </button>
+                </div>
               </div>
             </div>
           ))
@@ -88,18 +111,25 @@ export default function Produtos() {
       </div>
 
       {mostrarCadastrarProduto && (
-        <CadastroProduto 
-          onClose={() => setMostrarCadastrarProduto(false)}
+        <CadastroProduto
+          onClose={() => {
+            setMostrarCadastrarProduto(false);
+            carregarProdutos();
+          }}
         />
       )}
 
       {editarProdutoId && (
-        <EditarProduto 
-          id={editarProdutoId} 
+        <EditarProduto
+          id={editarProdutoId}
           onClose={() => setEditarProdutoId(null)}
+          onUpdate={() => {
+            carregarProdutos();
+            setEditarProdutoId(null);
+          }}
         />
       )}
-      <Footer/>
+      <Footer />
     </>
   );
 }

@@ -1,0 +1,61 @@
+.topContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 40px;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    span {
+        color: rgb(95, 95, 95);
+    }
+}
+
+.empresa{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pacoteIcon {
+    background-color: #26A8ED;
+    color: white;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+}
+
+.navegar {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.addProdutoBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    text-decoration: none;
+    padding: 10px;
+    background-color: #26A8ED;
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;
+    text-align: center;
+    gap: 5px;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    border: none
+}
+
+hr{
+    border: rgb(213, 213, 213) solid 1px;
+    margin-top: 30px;
+}
