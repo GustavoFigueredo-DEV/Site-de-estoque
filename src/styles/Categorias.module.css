@@ -96,4 +96,17 @@
     gap: 10px;
     cursor: pointer;
     border: none;
+    height: 206px;
 }
+
+/* hover dos cards de categori e o de add categoria */
+
+.categoria, .addCard {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.categoria:hover, .addCard:hover {
+  transform: translateY(-5px);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+}
+

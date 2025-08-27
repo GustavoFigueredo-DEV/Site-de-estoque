@@ -161,3 +161,14 @@
     gap: 5px;
     padding: 10px;
 }
+
+/* hover dos cards de produto */
+
+.produto {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.produto:hover {
+  transform: translateY(-6px);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+}
